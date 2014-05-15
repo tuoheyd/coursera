@@ -5,6 +5,7 @@ One of the most exciting areas in all of data science right now is wearable comp
   https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip  
 
 Requirements:
+
 1.  A tidy data set as described 
      A). You should create one R script called run_analysis.R that does the following. 
      B). Merges the training and the test sets to create one data set.
@@ -23,6 +24,7 @@ First the table of activity code and activity are read into the variable “acti
 Then the features table is read into the variable “features”.  This is a 561 parameter list which is reduced down to just the variable set of interest (see requirement 1c) 
 The original data set contain looked at 30 subjects performing 6 different activities and collected 561 parameters per sample repeated.  Approximately 5.7 million data points were collected in this study. For the purpose of this analysis the 561 features parameters were reduced down by only looking at the mean and standard deviation feature parameters.  The reduction was perform by looking for any expression that contained “mean()” or “std()”
 features[grep("mean\\(|std\\(", features$feature),]
+
 This resulted in a reduced list of only 66 parameters reducing the dataset size by ~88%:
 "tBodyAcc-mean-X"         "tBodyAcc-mean-Y"           "tBodyAcc-mean-Z"         
  "tBodyAcc-std-X"          "tBodyAcc-std-Y"            "tBodyAcc-std-Z"           
@@ -48,7 +50,7 @@ This resulted in a reduced list of only 66 parameters reducing the dataset size 
 "fBodyBodyGyroMag-std"    "fBodyBodyGyroJerkMag-mean" "fBodyBodyGyroJerkMag-std" 
 
 Several features such as meanfreq and stdfreq were excluded from this analysis by could have been included by a simple change to the grep’s regular expression:
-features[grep("mean|std", features$feature),]
+        features[grep("mean|std", features$feature),]     
 “listmean”  is the variable containing the above list.   The list above is transformed again to remove the “()” from each name.
 
 Next step is to read in the raw data for the test group.  The variables: “subject”, “ytest” and “xtest”.  The column titles are properly named.  These variables contain the id of the subject, the id for activity and the 561 parameters collected.  The parameters from “xtest” are selected in are used to form the vector variable “final”.  The subject id, activity id and the matrix final are merged together.  The key variable is still named “final”.
@@ -61,9 +63,10 @@ At this point the data has been filtered, merged and renamed it is time for the 
 
 Analysis:
 The aggregate command is used to find the mean of each column based on the activity and subject ID.  (Requirement 2)
+
 analysis<-aggregate(final[,3:finalwidth], by=list(final$activity, final$subject), FUN=mean)
+
 The final matrix is 180 columns long (30 subjects * 6 activities per subject)
 From R’s command line load the source file source(“run_analysis.R”) and the script will run automatically generating the resultant file “Tidydata.csv” in the working directory.
 
 (This document is Requirement 4)
-C
