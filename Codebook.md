@@ -50,10 +50,15 @@ This resulted in a reduced list of only 66 parameters reducing the dataset size 
 Several features such as meanfreq and stdfreq were excluded from this analysis by could have been included by a simple change to the grep’s regular expression:
 features[grep("mean|std", features$feature),]
 “listmean”  is the variable containing the above list.   The list above is transformed again to remove the “()” from each name.
+
 Next step is to read in the raw data for the test group.  The variables: “subject”, “ytest” and “xtest”.  The column titles are properly named.  These variables contain the id of the subject, the id for activity and the 561 parameters collected.  The parameters from “xtest” are selected in are used to form the vector variable “final”.  The subject id, activity id and the matrix final are merged together.  The key variable is still named “final”.
 Once the test data set has been process the same steps are repeated for the train data set.  The only difference in this step is the final variable is named “final2”.
+
 Now “final” and “final2” are merged to form the complete data set “final”.  (Requirement 1b) This variable contains all of the collected data.  The activity descriptions are substituted in for the activity codes (currently column 2, requirement 1d &1e)
+
 At this point the data has been filtered, merged and renamed it is time for the analysis part.
+
+
 Analysis:
 The aggregate command is used to find the mean of each column based on the activity and subject ID.  (Requirement 2)
 analysis<-aggregate(final[,3:finalwidth], by=list(final$activity, final$subject), FUN=mean)
@@ -61,3 +66,4 @@ The final matrix is 180 columns long (30 subjects * 6 activities per subject)
 From R’s command line load the source file source(“run_analysis.R”) and the script will run automatically generating the resultant file “Tidydata.csv” in the working directory.
 
 (This document is Requirement 4)
+C
