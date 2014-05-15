@@ -1,6 +1,4 @@
-coursera
-========
-Created for the Johns Hopkins Get Data R class
+Created for the Coursera's Johns Hopkins Getting and Cleaning Data class
 
 This file, codebook.md, run_analysis.r and tidydata.csv were created to fulfill the requirements of Coursera’s “Getting and Cleaning Data Class” (May 2014) presented by Dr Jeffery Leeks of the Johns Hopkins University.
 
