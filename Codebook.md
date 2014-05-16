@@ -7,6 +7,7 @@ One of the most exciting areas in all of data science right now is wearable comp
 ##Requirements:
 
 1.  A tidy data set as described 
+
      *A). You should create one R script called run_analysis.R that does the following. 
      *B). Merges the training and the test sets to create one data set.
      *C). Extracts only the measurements on the mean and standard deviation for each measurement. 
@@ -18,7 +19,8 @@ One of the most exciting areas in all of data science right now is wearable comp
 5. Include a README.md in the repository with your scripts. This document explains how all of the scripts work and how they are connected. 
 
 ###Program flow:
-	To execute the program the dataset’s folder “UCI HAR Dataset” must be located in R’s working directory.  From R’s command line load the source file source(“run_analysis.R”) and the script will run automatically generating the resultant file “Tidydata.csv” in the working directory.
+
+To execute the program the dataset’s folder “UCI HAR Dataset” must be located in R’s working directory.  From R’s command line load the source file source(“run_analysis.R”) and the script will run automatically generating the resultant file “Tidydata.csv” in the working directory.
 
 First the table of activity code and activity are read into the variable “activity”.  The columns are re-labeled and converted in a factor.
 Then the features table is read into the variable “features”.  This is a 561 parameter list which is reduced down to just the variable set of interest (see requirement 1c) 
@@ -66,7 +68,7 @@ At this point the data has been filtered, merged and renamed it is time for the 
 ##Analysis:
 The aggregate command is used to find the mean of each column based on the activity and subject ID.  (Requirement 2)
 
-analysis<-aggregate(final[,3:finalwidth], by=list(final$activity, final$subject), FUN=mean)
+        analysis<-aggregate(final[,3:finalwidth], by=list(final$activity, final$subject), FUN=mean)
 
 The final matrix is 180 columns long (30 subjects * 6 activities per subject)
 From R’s command line load the source file source(“run_analysis.R”) and the script will run automatically generating the resultant file “Tidydata.csv” in the working directory.
