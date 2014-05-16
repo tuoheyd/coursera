@@ -1,23 +1,23 @@
-Background:    
+##Background:    
 One of the most exciting areas in all of data science right now is wearable computing - see for example this article . Companies like Fitbit, Nike, and Jawbone Up are racing to develop the most advanced algorithms to attract new users. The data linked to from the course website represent data collected from the accelerometers from the Samsung Galaxy S Smartphone. A full description is available at the site where the data was obtained:   http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
 
    Here are the data for the project: 
   https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip  
 
-Requirements:
+##Requirements:
 
 1.  A tidy data set as described 
-     A). You should create one R script called run_analysis.R that does the following. 
-     B). Merges the training and the test sets to create one data set.
-     C). Extracts only the measurements on the mean and standard deviation for each measurement. 
-     D). Uses descriptive activity names to name the activities in the data set
-     E). Appropriately labels the data set with descriptive activity names. 
+     *A). You should create one R script called run_analysis.R that does the following. 
+     *B). Merges the training and the test sets to create one data set.
+     *C). Extracts only the measurements on the mean and standard deviation for each measurement. 
+     *D). Uses descriptive activity names to name the activities in the data set
+     *E). Appropriately labels the data set with descriptive activity names. 
 2. Creates a second, independent tidy data set with the average of each variable for each activity and each subject.
 3. A link to a Github repository with your script for performing the analysis, and 
 4. A code book that describes the variables, the data, and any transformations or work that you performed to clean up the data called CodeBook.md. 
 5. Include a README.md in the repository with your scripts. This document explains how all of the scripts work and how they are connected. 
 
-Program flow:
+###Program flow:
 	To execute the program the dataset’s folder “UCI HAR Dataset” must be located in R’s working directory.  From R’s command line load the source file source(“run_analysis.R”) and the script will run automatically generating the resultant file “Tidydata.csv” in the working directory.
 
 First the table of activity code and activity are read into the variable “activity”.  The columns are re-labeled and converted in a factor.
@@ -50,7 +50,9 @@ This resulted in a reduced list of only 66 parameters reducing the dataset size 
 "fBodyBodyGyroMag-std"    "fBodyBodyGyroJerkMag-mean" "fBodyBodyGyroJerkMag-std" 
 
 Several features such as meanfreq and stdfreq were excluded from this analysis by could have been included by a simple change to the grep’s regular expression:
+
         features[grep("mean|std", features$feature),]     
+
 “listmean”  is the variable containing the above list.   The list above is transformed again to remove the “()” from each name.
 
 Next step is to read in the raw data for the test group.  The variables: “subject”, “ytest” and “xtest”.  The column titles are properly named.  These variables contain the id of the subject, the id for activity and the 561 parameters collected.  The parameters from “xtest” are selected in are used to form the vector variable “final”.  The subject id, activity id and the matrix final are merged together.  The key variable is still named “final”.
@@ -61,7 +63,7 @@ Now “final” and “final2” are merged to form the complete data set “fin
 At this point the data has been filtered, merged and renamed it is time for the analysis part.
 
 
-Analysis:
+##Analysis:
 The aggregate command is used to find the mean of each column based on the activity and subject ID.  (Requirement 2)
 
 analysis<-aggregate(final[,3:finalwidth], by=list(final$activity, final$subject), FUN=mean)
