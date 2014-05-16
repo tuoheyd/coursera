@@ -30,9 +30,11 @@ To execute the program the dataset’s folder “UCI HAR Dataset” must be loca
 First the table of activity code and activity are read into the variable “activity”.  The columns are re-labeled and converted in a factor.
 Then the features table is read into the variable “features”.  This is a 561 parameter list which is reduced down to just the variable set of interest (see requirement 1c) 
 The original data set contain looked at 30 subjects performing 6 different activities and collected 561 parameters per sample repeated.  Approximately 5.7 million data points were collected in this study. For the purpose of this analysis the 561 features parameters were reduced down by only looking at the mean and standard deviation feature parameters.  The reduction was perform by looking for any expression that contained “mean()” or “std()”
-features[grep("mean\\(|std\\(", features$feature),]
+
+                   features[grep("mean\\(|std\\(", features$feature),]
 
 This resulted in a reduced list of only 66 parameters reducing the dataset size by ~88%:
+
 "tBodyAcc-mean-X"         "tBodyAcc-mean-Y"           "tBodyAcc-mean-Z"         
 "tBodyAcc-std-X"          "tBodyAcc-std-Y"            "tBodyAcc-std-Z"           
 "tGravityAcc-mean-X"      "tGravityAcc-mean-Y"        "tGravityAcc-mean-Z"       
@@ -76,6 +78,10 @@ The aggregate command is used to find the mean of each column based on the activ
         analysis<-aggregate(final[,3:finalwidth], by=list(final$activity, final$subject), FUN=mean)
 
 The final matrix is 180 columns long (30 subjects * 6 activities per subject)
-From R’s command line load the source file source(“run_analysis.R”) and the script will run automatically generating the resultant file “Tidydata.csv” in the working directory.
+
+
+From R’s command line load the source file 
+          source(“run_analysis.R”) 
+and the script will run automatically generating the resultant file “Tidydata.csv” in the working directory.
 
 (This document is Requirement 4)
