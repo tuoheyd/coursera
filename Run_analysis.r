@@ -1,8 +1,9 @@
 #R script goes here
 if (!file.exists("./UCI HAR Dataset")) {
-#	dir.create("data")
-	print("file does not exist")
+#	Check to make sure the data set exists.
+  print("'UCI HAR Dataset' is not in the working directory")
 	dateDownloaded<-data()
+  stop()
 }
 
 #read activity table
