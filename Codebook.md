@@ -1,4 +1,5 @@
-##Background:    
+##Background:
+=============
 One of the most exciting areas in all of data science right now is wearable computing - see for example this article . Companies like Fitbit, Nike, and Jawbone Up are racing to develop the most advanced algorithms to attract new users. The data linked to from the course website represent data collected from the accelerometers from the Samsung Galaxy S Smartphone. A full description is available at the site where the data was obtained:
            http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
 
@@ -9,15 +10,15 @@ One of the most exciting areas in all of data science right now is wearable comp
 
 1.  A tidy data set as described 
 
-     *A). You should create one R script called run_analysis.R that does the following. 
+     A. You should create one R script called run_analysis.R that does the following. 
 
-     *B). Merges the training and the test sets to create one data set.
+     B. Merges the training and the test sets to create one data set.
 
-     *C). Extracts only the measurements on the mean and standard deviation for each measurement. 
+     C. Extracts only the measurements on the mean and standard deviation for each measurement. 
 
-     *D). Uses descriptive activity names to name the activities in the data set
+     D. Uses descriptive activity names to name the activities in the data set
 
-     *E). Appropriately labels the data set with descriptive activity names. 
+     E. Appropriately labels the data set with descriptive activity names. 
 2. Creates a second, independent tidy data set with the average of each variable for each activity and each subject.
 3. A link to a Github repository with your script for performing the analysis, and 
 4. A code book that describes the variables, the data, and any transformations or work that you performed to clean up the data called CodeBook.md. 
