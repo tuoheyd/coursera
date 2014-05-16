@@ -81,7 +81,9 @@ The final matrix is 180 columns long (30 subjects * 6 activities per subject)
 
 
 From R’s command line load the source file 
+
           source(“run_analysis.R”) 
+
 and the script will run automatically generating the resultant file “Tidydata.csv” in the working directory.
 
 (This document is Requirement 4)
