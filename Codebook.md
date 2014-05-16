@@ -26,7 +26,7 @@ One of the most exciting areas in all of data science right now is wearable comp
 
 ###Program flow:
 
-To execute the program the dataset’s folder “UCI HAR Dataset” must be located in R’s working directory.  From R’s command line load the source file source(“run_analysis.R”) and the script will run automatically generating the resultant file “Tidydata.csv” in the working directory.
+To execute the program the dataset’s folder “UCI HAR Dataset” must be located in R’s working directory.  From R’s command line load the source file source(“run_analysis.R”) and the script will run automatically generating the resultant file “Tidydata.csv” in the working directory.  This script does not require any additional librarys beyond the base package.
 
 First the table of activity code and activity are read into the variable “activity”.  The columns are re-labeled and converted in a factor.
 Then the features table is read into the variable “features”.  This is a 561 parameter list which is reduced down to just the variable set of interest (see requirement 1c) 
