@@ -74,17 +74,18 @@ At this point the data has been filtered, merged and renamed it is time for the 
 
 
 ##Analysis:
-The aggregate command is used to find the mean of each column based on the activity and subject ID.  (Requirement 2)
+Each of the 30 subjects generated approximately 40 to 90 sample points per activity.  In order to reduce data set down the mean for each subject and acitivity was performed.  The aggregate command is used to find the mean of each column based on the activity and subject ID.  (Requirement 2)
 
         analysis<-aggregate(final[,3:finalwidth], by=list(final$activity, final$subject), FUN=mean)
 
 The final matrix is 180 columns long (30 subjects * 6 activities per subject)
+The final matrix is saved to the working directory as a CSV file named: "Tidydata.csv"
 
 
 From R’s command line load the source file 
 
           source(“run_analysis.R”) 
 
-and the script will run automatically generating the resultant file “Tidydata.csv” in the working directory.
+and the script will run  generationg summary table of the the number of data points per subject per activity.  The subject's ID is the first column (number 1 to 3).  Also the output will also display a small portion of the final data mean matrix, this data table automatically saved with filename “Tidydata.csv” in the working directory.
 
 (This document is Requirement 4)
