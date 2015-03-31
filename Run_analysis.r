@@ -2,7 +2,7 @@
 if (!file.exists("./UCI HAR Dataset")) {
 #	Check to make sure the data set exists.
   print("'UCI HAR Dataset' is not in the working directory")
-	dateDownloaded<-data()
+	dateDownloaded<-date()
   stop()
 }
 
