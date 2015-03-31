@@ -10,16 +10,16 @@ if (!file.exists("./UCI HAR Dataset")) {
 activity<-read.table("./UCI HAR Dataset/activity_labels.txt", sep=" ", head=FALSE)
 names(activity)<-c("acode", "activity")
 
-#convert to lower case and to factors
+#converts to lower case and to factors
 activity$activity<-tolower(activity$activity)
 activity$activity<-as.factor(activity$activity)
 
-#read the features (data headigs)
+#read the features (data headings)
 features<-read.table("./UCI HAR Dataset/features.txt", sep=" ", head=FALSE)
 names(features)<-c("fcode", "feature")
 
 
-#find the list of means and std and then combine to one list
+#finds the list of means and std and then combine to one list
 listmean<-features[grep("mean\\(|std\\(", features$feature),]
 #remove the () from the names and convert to lower case
 listmean$feature<-gsub("\\(\\)", "", listmean$feature)
@@ -38,9 +38,9 @@ print(nrow(listmean))
    names(final)<-listmean$feature
    final<-cbind(subject, ytest, final)
 
-print("Test Dataset Processed")
+print ("Test Dataset Processed")
 
-#seperate out final code from developement code to speed developement
+#seperate out final code from development code to speed development
 if (1)
 {
     #Read subject and activity list and raw for train dataset.
